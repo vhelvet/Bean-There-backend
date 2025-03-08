@@ -1,0 +1,26 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+env/
+
+# IDE/editor config files
+.vscode/
+.idea/
+
+# Database files
+*.sqlite3
+
+# Static & media files (if generated dynamically)
+staticfiles/
+media/
+
+# Secrets & environment variables
+.env
+settings_local.py
+
+# Logs & temp files
+*.log
+*.tmp 

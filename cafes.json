@@ -1,0 +1,39 @@
+[
+    {
+      "name": "Tinatangi Cafe",
+      "address": "13 Jose Abad Santos Avenue, Brgy, Salawag, Dasmariñas, 4114 Cavite, Philippines",
+      "opening_hours": "7AM - 12MN",
+      "about": "At Tinatangi Cafe, we take you on an extraordinary voyage, exploring the origins of our coffee beans from carefully selected local farms from Cavite. With a deep commitment to sustainability and ethical sourcing.",
+      "menu": {
+        "drinks": ["Coffee Based (Hot/Iced)", "Hot and Cold Drinks", "Non-Coffee Based", "Hot Tea", "Non-Coffee Drinks", "Iced Tea"],
+        "food": ["Bread & Tinatangi Loaf", "Cakes & Pastry", "Breakfast", "Pasta", "Rice Meals"]
+      },
+      "services": ["Dine-in", "Outdoor seating / Al Fresco Dining", "Takeout", "Reservation / Events", "Parking"],
+      "social_media": {
+        "facebook": "https://www.facebook.com/TinatangiCafe",
+        "instagram": "https://www.instagram.com/tinatangi_cafe/",
+        "tiktok": "https://www.tiktok.com/@tinatangi.cafe",
+        "website": "https://tinatangi.com/index.html"
+      }
+    },
+    {
+      "name": "Someday Brews",
+      "address": "Block 13, Lot 7, Cityview II Farm Lot Subdivision, Dasmari\u00f1as, Philippines",
+      "opening_hours": "10AM - 10PM",
+      "about": "Step into our cozy retreat and indulge in moments of warmth and flavor. Your guide to enjoying coffee, co-working, and a pet-friendly space awaits.",
+      "menu": {
+        "drinks": ["Espresso (Hot/Iced)", "Non-Coffee (Hot/Iced)", "Frappuccino", "Refreshers"],
+        "food": ["Appetizers", "Pasta", "Breakfast", "Salad", "Burgers & Sandwich", "Rice Bowl", "Mains (Chicken, Steak, Porkchop, Salmon)"]
+      },
+      "services": ["Dine-in", "Outdoor seating / Al Fresco Dining", "Takeout", "Reservation / Events", "Co-Working Space", "Pet-Friendly", "Delivery (Food Panda)", "Parking"],
+      "social_media": {
+        "facebook": "https://www.facebook.com/somedaybrews",
+        "instagram": "https://www.instagram.com/somedaybrews/",
+        "tiktok": "https://www.tiktok.com/@somedaybrews",
+        "website": null
+      }
+    }
+]
+
+
+
