@@ -9,14 +9,14 @@ class CafeFilter(FilterSet):
     class Meta:
         model = Cafe
         fields = {
-            'opening_hours': ['exact', 'icontains'],  # ✅ Normal field filter
+            'opening_hours': ['exact', 'icontains'],  # Normal field filter
         }
 
         filter_overrides = {
             JSONField: {
                 'filter_class': django_filters.CharFilter,
                 'extra': lambda f: {
-                    'lookup_expr': 'icontains',  # ✅ Allows filtering JSONField as text
+                    'lookup_expr': 'icontains',  # Allows filtering JSONField as text
                 },
             },
         }
