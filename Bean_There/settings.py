@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'accounts', 
 
     #Custom Apps
-    'core', 'user', 'cafe', 'product', 'gallery', 'review', 'favorite',
+    'cafe', 'review', 'favorite',
 ]
 
 MIDDLEWARE = [
@@ -148,7 +148,10 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_FILTER_BACKENDS': [
         'django_filters.rest_framework.DjangoFilterBackend'
-    ]
+    ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
+
 }
 
 #EMAIL
@@ -162,7 +165,11 @@ EMAIL_HOST_PASSWORD = 'beanthere456'    #Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173"
+    "http://localhost:5173",
+    "http://localhost:5174"
 ]
 
+CORS_ALLOW_CREDENTIALS = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'

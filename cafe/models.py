@@ -6,14 +6,17 @@ from django.apps import apps
 
 class Cafe(models.Model):
     name = models.CharField(max_length=255)
-    address = models.TextField()
-    opening_hours = models.CharField(max_length=255)
-    about = models.TextField()
-    menu = models.TextField()
-    services = models.JSONField()
-    social_media = models.JSONField()
+    image = models.TextField(blank=True, null=True)
+    route = models.TextField(blank=True, null=True)
+    address = models.TextField(default="No address provided", blank=True, null=True)
+    opening_hours = models.CharField(max_length=255, default="Not specified")
+    about = models.TextField(blank=True, null=True)
+    menu = models.TextField(blank=True, null=True)
+    services = models.JSONField(blank=True, null=True)
+    social_media = models.JSONField(blank=True, null=True)
     average_rating = models.FloatField(default=0.0)
     total_reviews = models.IntegerField(default=0)
+    
 
     def update_rating(self):
         Review = apps.get_model('review', 'Review')

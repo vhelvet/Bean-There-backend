@@ -3,7 +3,7 @@ from .models import Review
 from .serializers import ReviewSerializer
 
 class ReviewListCreateView(generics.ListCreateAPIView):
-    queryset = Review.objects.all()
+    queryset = Review.objects.all().order_by('-created_at')
     serializer_class = ReviewSerializer
 
 

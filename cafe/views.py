@@ -12,6 +12,6 @@ class CafeViewSet(viewsets.ModelViewSet):
     # Enable search and filtering
     filter_backends = [DjangoFilterBackend, filters.SearchFilter, filters.OrderingFilter]
     filterset_class = CafeFilter  #filter 
-    search_fields = ['name', 'about', 'menu', 'address']  # Allow text search
+    search_fields = ['name', 'about', 'menu', 'address', 'services', 'opening_hours']  # Allow text search
     ordering_fields = ['name']  # Enable ordering by name
         

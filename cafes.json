@@ -1,6 +1,8 @@
 [
     {
       "name": "Tinatangi Cafe",
+      "image": "/Tinatangi.jpg",
+      "route": "/tinatangi",
       "address": "13 Jose Abad Santos Avenue, Brgy, Salawag, Dasmariñas, 4114 Cavite, Philippines",
       "opening_hours": "7AM - 12MN",
       "about": "At Tinatangi Cafe, we take you on an extraordinary voyage, exploring the origins of our coffee beans from carefully selected local farms from Cavite. With a deep commitment to sustainability and ethical sourcing.",
@@ -18,6 +20,8 @@
     },
     {
       "name": "Someday Brews",
+      "image": "/Somedays.jpg",
+      "route": "/someday-brews",
       "address": "Block 13, Lot 7, Cityview II Farm Lot Subdivision, Dasmari\u00f1as, Philippines",
       "opening_hours": "10AM - 10PM",
       "about": "Step into our cozy retreat and indulge in moments of warmth and flavor. Your guide to enjoying coffee, co-working, and a pet-friendly space awaits.",
@@ -26,13 +30,24 @@
         "food": ["Appetizers", "Pasta", "Breakfast", "Salad", "Burgers & Sandwich", "Rice Bowl", "Mains (Chicken, Steak, Porkchop, Salmon)"]
       },
       "services": ["Dine-in", "Outdoor seating / Al Fresco Dining", "Takeout", "Reservation / Events", "Co-Working Space", "Pet-Friendly", "Delivery (Food Panda)", "Parking"],
-      "social_media": {
-        "facebook": "https://www.facebook.com/somedaybrews",
-        "instagram": "https://www.instagram.com/somedaybrews/",
-        "tiktok": "https://www.tiktok.com/@somedaybrews",
-        "website": null
-      }
+        "social_media": {
+          "facebook": "https://www.facebook.com/somedaybrews",
+          "instagram": "https://www.instagram.com/somedaybrews/",
+          "tiktok": "https://www.tiktok.com/@somedaybrews",
+          "website": null
+        }
+    },
+    {
+      "name": "He Brews She Bakes",
+      "image": "/HBSB.jpg",
+      "route": "/he-brews-she-bakes"
+    },
+    {
+      "name": "But First Coffee",
+      "image": "/bfc.jpg",
+      "route": "/but-first-coffee"
     }
+    
 ]
 
 
