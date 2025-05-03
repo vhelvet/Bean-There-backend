@@ -47,3 +47,4 @@ class FavoriteDetailView(generics.DestroyAPIView):
             {'detail': 'Favoriteremoved successfully.'},
             status=status.HTTP_204_NO_CONTENT
         )
+

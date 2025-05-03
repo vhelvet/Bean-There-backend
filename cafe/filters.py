@@ -2,16 +2,31 @@ import re
 from datetime import datetime
 from django.db.models import Q
 import django_filters
+import django_filters
+from django.db.models import JSONField
+from django_filters import CharFilter
 from django_filters.rest_framework import FilterSet
 from .models import Cafe
 
 class CafeFilter(FilterSet):
+
     services = django_filters.CharFilter(method='filter_services')
     opening_hours = django_filters.CharFilter(method='filter_opening_hours')
 
     class Meta:
         model = Cafe
-        fields = ['opening_hours', 'services']  # Allow filtering by opening_hours and services
+        fields = {
+            'opening_hours': ['exact', 'icontains'],  # ✅ Normal field filter
+        }
+
+        filter_overrides = {
+            JSONField: {
+                'filter_class': django_filters.CharFilter,
+                'extra': lambda f: {
+                    'lookup_expr': 'icontains',  # ✅ Allows filtering JSONField as text
+                },
+            },
+        }
 
     def filter_opening_hours(self, queryset, name, value):
         # Parse the target time (e.g., '9AM') to compare with the opening_hours
@@ -83,3 +98,4 @@ class CafeFilter(FilterSet):
     def filter_services(self, queryset, name, value):
         # Filter cafes by services if a service value is provided
         return queryset.filter(services__icontains=value)
+    

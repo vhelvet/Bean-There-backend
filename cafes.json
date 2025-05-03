@@ -30,6 +30,7 @@
         "food": ["Appetizers", "Pasta", "Breakfast", "Salad", "Burgers & Sandwich", "Rice Bowl", "Mains (Chicken, Steak, Porkchop, Salmon)"]
       },
       "services": ["Dine-in", "Outdoor seating / Al Fresco Dining", "Takeout", "Reservation / Events", "Co-Working Space", "Pet-Friendly", "Delivery (Food Panda)", "Parking"],
+
         "social_media": {
           "facebook": "https://www.facebook.com/somedaybrews",
           "instagram": "https://www.instagram.com/somedaybrews/",
@@ -47,7 +48,7 @@
       "image": "/bfc.jpg",
       "route": "/but-first-coffee"
     }
-    
+  
 ]
 
 

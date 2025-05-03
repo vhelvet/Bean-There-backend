@@ -18,3 +18,4 @@ class Favorite(models.Model):
         return f"{self.user.username} favorites {self.cafe.name}"
 
 
+

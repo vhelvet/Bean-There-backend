@@ -3,7 +3,8 @@ from rest_framework.routers import DefaultRouter
 from .views import CafeViewSet
 
 router = DefaultRouter()
-router.register(r'', CafeViewSet)
+
+router.register(r'cafes', CafeViewSet)
 
 urlpatterns = [
     path('', include(router.urls)),
