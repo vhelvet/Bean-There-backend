@@ -3,6 +3,7 @@ from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
 from .models import CustomUser
 import re
+from favorite.serializers import FavoriteSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -80,9 +81,10 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class UserProfileSerializer(serializers.ModelSerializer):
+    favorites = FavoriteSerializer(many=True, read_only=True, source='favorites')
     class Meta:
         model = CustomUser
-        fields = ['profile_picture', 'first_name', 'last_name', 'email', 'phone_number', 'bio']
+        fields = ['profile_picture', 'first_name', 'last_name', 'email', 'phone_number', 'bio', 'favorites']
 
 
 

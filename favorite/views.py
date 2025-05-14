@@ -1,49 +1,37 @@
-from rest_framework import generics, permissions, status
+from rest_framework import status, generics, permissions
 from rest_framework.response import Response
+from rest_framework.views import APIView
 from favorite.models import Favorite
-from favorite.serializers import FavoriteSerializer, CreateFavoriteSerializer
+from favorite.serializers import FavoriteSerializer
 from cafe.models import Cafe
-from django.shortcuts import get_object_or_404
 
 
-class FavoriteListCreateView(generics.ListCreateAPIView):
-    permission_classes = [permissions.AllowAny]  # Temporarily AllowAny for testing
-   
-    def get_serializer_class(self):
-        if self.request.method == 'POST':
-            return CreateFavoriteSerializer
-        return FavoriteSerializer
-   
-    def get_queryset(self):
-        # For testing: show all favorites if not authenticated
-        if not self.request.user.is_authenticated:
-            return Favorite.objects.all().select_related('cafe')[:10]  # Limit to 10
-        return Favorite.objects.filter(user=self.request.user).select_related('cafe')
-   
-    def perform_create(self, serializer):
-        if not self.request.user.is_authenticated:
-            # For testing: use a default user if not authenticated
-            from accounts.models import CustomUser
-            user = CustomUser.objects.first()  # Change this as needed
+class FavoriteToggleView(APIView):
+    permission_classes = [permissions.IsAuthenticated]
+
+
+    def post(self, request, cafe_id):
+        user = request.user
+        try:
+            cafe = Cafe.objects.get(id=cafe_id)
+        except Cafe.DoesNotExist:
+            return Response({"detail": "Cafe not found."}, status=status.HTTP_404_NOT_FOUND)
+
+
+        favorite, created = Favorite.objects.get_or_create(user=user, cafe=cafe)
+        if not created:
+            # Already favorited, so unfavorite
+            favorite.delete()
+            return Response({"detail": "Cafe unfavorited."}, status=status.HTTP_200_OK)
         else:
-            user = self.request.user
-        serializer.save(user=user)
+            return Response({"detail": "Cafe favorited."}, status=status.HTTP_201_CREATED)
 
 
-class FavoriteDetailView(generics.DestroyAPIView):
-    permission_classes = [permissions.AllowAny]  # Temporarily AllowAny for testing
-    queryset = Favorite.objects.all()
-    lookup_field = 'pk'
-   
-    def get_object(self):
-        obj = get_object_or_404(Favorite, pk=self.kwargs['pk'])
-        # Skip ownership check for testing
-        return obj
-   
-    def delete(self, request, *args, **kwargs):
-        instance = self.get_object()
-        self.perform_destroy(instance)
-        return Response(
-            {'detail': 'Favorite removed successfully.'},
-            status=status.HTTP_204_NO_CONTENT
-        )
+class UserFavoritesListView(generics.ListAPIView):
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = FavoriteSerializer
+
+
+    def get_queryset(self):
+        user = self.request.user
+        return Favorite.objects.filter(user=user).order_by('-created_at')

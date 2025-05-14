@@ -12,11 +12,16 @@ class CustomUser(AbstractUser):
     barangay = models.CharField(max_length=255, blank=True, null=True)
     bio = models.TextField(blank=True, null=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True, default='profile_pics/default.jpg')   
+    user_id = models.CharField(max_length=255, blank=True, null=True)  # Temporarily remove unique=True
     # Add custom fields here, if needed
 
 
     def __str__(self):
         return self.username
+    
+    @property
+    def favorites(self):
+        return self.favorites.all()
    
 
 

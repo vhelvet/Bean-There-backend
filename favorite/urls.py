@@ -1,8 +1,8 @@
 from django.urls import path
-from favorite import views
+from favorite.views import FavoriteToggleView, UserFavoritesListView
 
 
 urlpatterns = [
-    path('', views.FavoriteListCreateView.as_view(), name='favorite-list'),
-    path('<int:cafe_id>/', views.FavoriteDetailView.as_view(), name='favorite-detail'),
+    path('toggle/<int:cafe_id>/', FavoriteToggleView.as_view(), name='favorite-toggle'),
+    path('user/', UserFavoritesListView.as_view(), name='user-favorites'),
 ]

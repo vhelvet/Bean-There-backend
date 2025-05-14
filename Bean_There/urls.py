@@ -22,6 +22,6 @@ urlpatterns = [
     path("accounts/", include("accounts.urls")), 
     path("cafes/", include("cafe.urls")),
     path("reviews/", include("review.urls")),
-    path("api/favorites/", include("favorite.urls")), 
+    path("favorite/", include("favorite.urls")), 
 
 ]
