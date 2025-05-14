@@ -2,6 +2,7 @@ from rest_framework import serializers
 from favorite.models import Favorite
 from cafe.models import Cafe  # Add this import
 from cafe.serializers import CafeSerializer
+from accounts.models import CustomUser  # Add this import
 
 
 class FavoriteSerializer(serializers.ModelSerializer):

@@ -5,7 +5,6 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from .serializers import UserProfileSerializer, UserSerializer
-from .serializers import UserSerializer
 from django.core.exceptions import ObjectDoesNotExist
 from .models import CustomUser
 from rest_framework.decorators import api_view, permission_classes
@@ -81,6 +80,7 @@ def user_logout(request):
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
 
+
 @api_view(['GET', 'PUT'])
 @permission_classes([IsAuthenticated])
 def user_profile(request):
@@ -96,4 +96,3 @@ def user_profile(request):
             serializer.save()
             return Response({'message': 'Profile updated successfully.', 'data': serializer.data})
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-

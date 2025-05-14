@@ -20,11 +20,8 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("accounts.urls")), 
-<<<<<<< HEAD
     path("cafes/", include("cafe.urls")),
     path("reviews/", include("review.urls")),
     path("api/favorites/", include("favorite.urls")), 
 
-    path("api/", include("cafe.urls")), 
->>>>>>> c35d16d (Uploading project files)
 ]
