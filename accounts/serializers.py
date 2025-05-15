@@ -81,7 +81,7 @@ class UserSerializer(serializers.ModelSerializer):
         return user
 
 class UserProfileSerializer(serializers.ModelSerializer):
-    favorites = FavoriteSerializer(many=True, read_only=True, source='favorites')
+    favorites = FavoriteSerializer(many=True, read_only=True)
     class Meta:
         model = CustomUser
         fields = ['profile_picture', 'first_name', 'last_name', 'email', 'phone_number', 'bio', 'favorites']
